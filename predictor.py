@@ -74,12 +74,12 @@ fig.autofmt_xdate()
 predicted_values = predictedArr.flatten() #already subset
 predicted_dates = all_dates[len(all_dates)-len(predicted_values):len(all_dates)]
 predicted_series = pd.Series(predicted_values, index=predicted_dates)
-plot_predicted = ax.plot(predicted_series, label='predicted (c)')
+plot_predicted, = ax.plot(predicted_series, label='predicted (c)')
 
 test_values = y['test'].flatten()
 test_dates = all_dates[len(all_dates)-len(test_values):len(all_dates)]
 test_series = pd.Series(test_values, index=test_dates)
-plot_test = ax.plot(test_series, label='2016 (c)')
+plot_test, = ax.plot(test_series, label='2016 (c)')
 
 xfmt = mdates.DateFormatter('%b %d %H')
 ax.xaxis.set_major_formatter(xfmt)
